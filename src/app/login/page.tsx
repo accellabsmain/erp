@@ -19,7 +19,7 @@ export default function LoginPage() {
         if (emailStr) setUsername(emailStr.split('@')[0]);
         setLoading(true);
         setError("");
-        const result = await login(formData);
+        const result = await login(formData) as any;
         if (result?.error) {
             setError(result.error);
             setLoading(false);

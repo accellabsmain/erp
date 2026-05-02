@@ -18,7 +18,7 @@ export default function RegisterPage() {
     async function handleSubmit(formData: FormData) {
         setLoading(true);
         setError("");
-        const result = await register(formData);
+        const result = await register(formData) as any;
         if (result?.error) {
             setError(result.error);
             setLoading(false);
