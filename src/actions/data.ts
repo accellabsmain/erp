@@ -447,7 +447,7 @@ export async function getDashboardStats(userId?: string) {
 
     let pQuery = supabase.from("pendapatan").select("jumlah, tanggal, deskripsi, metode_pembayaran").gte("tanggal", startDate).lt("tanggal", endDate);
     let kQuery = supabase.from("pengeluaran").select("jumlah, tanggal, deskripsi, metode_pembayaran").gte("tanggal", startDate).lt("tanggal", endDate);
-    let gQuery = supabase.from("penggajian").select("id").eq("status", "pending");
+    const gQuery = supabase.from("penggajian").select("id").eq("status", "pending");
 
     if (userId) {
         pQuery = pQuery.eq("user_id", userId);
@@ -461,8 +461,8 @@ export async function getDashboardStats(userId?: string) {
         userId ? { data: [] } : gQuery, // Hide payroll stats for non-admins
     ]);
 
-    const totalPendapatan = (pendapatanData.data || []).reduce((sum, r) => sum + r.jumlah, 0);
-    const totalPengeluaran = (pengeluaranData.data || []).reduce((sum, r) => sum + r.jumlah, 0);
+    const totalPendapatan = (pendapatanData.data || []).reduce((sum: number, r: { jumlah: number }) => sum + r.jumlah, 0);
+    const totalPengeluaran = (pengeluaranData.data || []).reduce((sum: number, r: { jumlah: number }) => sum + r.jumlah, 0);
 
     // Get recent transactions from both tables
     let recentPQuery = supabase.from("pendapatan").select("jumlah, tanggal, deskripsi, metode_pembayaran").order("tanggal", { ascending: false }).limit(5);
@@ -479,8 +479,8 @@ export async function getDashboardStats(userId?: string) {
     ]);
 
     const recentTransaksi = [
-        ...(recentP.data || []).map(item => ({ ...item, tipe: "pendapatan" as const })),
-        ...(recentK.data || []).map(item => ({ ...item, tipe: "pengeluaran" as const })),
+        ...(recentP.data || []).map((item: { jumlah: number; tanggal: string; deskripsi: string; metode_pembayaran: string }) => ({ ...item, tipe: "pendapatan" as const })),
+        ...(recentK.data || []).map((item: { jumlah: number; tanggal: string; deskripsi: string; metode_pembayaran: string }) => ({ ...item, tipe: "pengeluaran" as const })),
     ].sort((a, b) => new Date(b.tanggal).getTime() - new Date(a.tanggal).getTime())
      .slice(0, 5);
 
@@ -510,13 +510,13 @@ export async function getDashboardStats(userId?: string) {
         const y = d.getFullYear();
         const s = `${y}-${String(m).padStart(2, "0")}`; // YYYY-MM
 
-        const pFiltered = (allP.data || []).filter(r => r.tanggal.startsWith(s));
-        const kFiltered = (allK.data || []).filter(r => r.tanggal.startsWith(s));
+        const pFiltered = (allP.data || []).filter((r: { tanggal: string }) => r.tanggal.startsWith(s));
+        const kFiltered = (allK.data || []).filter((r: { tanggal: string }) => r.tanggal.startsWith(s));
 
         chartData.push({
             bulan: MONTHS_SHORT[m - 1],
-            pendapatan: pFiltered.reduce((sum, r) => sum + r.jumlah, 0),
-            pengeluaran: kFiltered.reduce((sum, r) => sum + r.jumlah, 0),
+            pendapatan: pFiltered.reduce((sum: number, r: { jumlah: number }) => sum + r.jumlah, 0),
+            pengeluaran: kFiltered.reduce((sum: number, r: { jumlah: number }) => sum + r.jumlah, 0),
         });
     }
 
@@ -525,7 +525,7 @@ export async function getDashboardStats(userId?: string) {
         totalPengeluaran,
         profit: totalPendapatan - totalPengeluaran,
         recentTransaksi,
-        penggajianPending: (penggajianPending as any).data?.length || 0,
+        penggajianPending: (penggajianPending as { data: unknown[] | null }).data?.length || 0,
         chartData,
     };
 }
@@ -741,7 +741,7 @@ export async function getAuthUsers() {
 
     if (error) return { error: error.message };
 
-    const mapped = users.users.map(u => ({
+    const mapped = users.users.map((u: { id: string; email?: string; user_metadata?: { role?: string }; last_sign_in_at?: string; created_at: string }) => ({
         id: u.id,
         email: u.email || "",
         role: u.user_metadata?.role || "Karyawan",

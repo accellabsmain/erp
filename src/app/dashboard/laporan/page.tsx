@@ -10,7 +10,7 @@ export default async function LaporanPage() {
     if (user.user?.user_metadata?.role === "Karyawan") {
         redirect("/dashboard/pos");
     }
-    const [pendapatan, pengeluaran, kategori] = await Promise.all([
+    const [pendapatan, pengeluaran] = await Promise.all([
         // get all so that client side filtering by month/year is instant
         getPendapatan(),
         getPengeluaran(),

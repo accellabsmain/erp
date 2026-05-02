@@ -4,7 +4,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BarChart3, Package, Users, Receipt, ShieldCheck } from "lucide-react";
+import { ArrowRight, Package, Users, Receipt, ShieldCheck } from "lucide-react";
 
 export default function LandingPage() {
     return (

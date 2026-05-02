@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export function createClient() {
     return {
@@ -16,16 +17,16 @@ export function createClient() {
             signUp: async () => ({ data: { user: {} }, error: null }),
             signOut: async () => ({ error: null }),
         },
-        from: (table: string) => ({
+        from: (_table: string) => ({ // eslint-disable-line @typescript-eslint/no-unused-vars
             select: () => ({
                 eq: () => ({
                     single: async () => ({ data: null, error: null }),
-                    then: (res: any) => res({ data: [], error: null })
+                    then: (res: (v: { data: any[]; error: null }) => void) => res({ data: [], error: null })
                 }),
                 order: () => ({
-                    then: (res: any) => res({ data: [], error: null })
+                    then: (res: (v: { data: any[]; error: null }) => void) => res({ data: [], error: null })
                 }),
-                then: (res: any) => res({ data: [], error: null })
+                then: (res: (v: { data: any[]; error: null }) => void) => res({ data: [], error: null })
             }),
             insert: async () => ({ data: null, error: null }),
             update: () => ({ eq: async () => ({ error: null }) }),

@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { TrendingUp, TrendingDown, Wallet, Clock } from "lucide-react";
 import { DashboardChart } from "./chart";
 import { createClient } from "@/lib/supabase/server";
-import { redirect } from "next/navigation";
 
 export default async function DashboardPage() {
     const supabase = await createClient();
@@ -95,7 +94,7 @@ export default async function DashboardPage() {
                         <p className="text-sm text-muted-foreground py-4 text-center">Belum ada transaksi</p>
                     ) : (
                         <div className="space-y-3">
-                            {stats.recentTransaksi.map((t: any, i: number) => (
+                            {stats.recentTransaksi.map((t: { deskripsi: string; tipe: string; tanggal: string; jumlah: number }, i: number) => (
                                 <div key={i} className="flex items-center justify-between rounded-lg p-3 bg-zinc-50 dark:bg-zinc-800/50">
                                     <div className="flex flex-col gap-0.5">
                                         <p className="text-sm font-medium">{t.deskripsi || (t.tipe === "pendapatan" ? "Pendapatan" : "Pengeluaran")}</p>

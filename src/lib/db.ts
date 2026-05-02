@@ -69,12 +69,12 @@ export function getDB() {
         const db = JSON.parse(content);
         // Ensure all tables exist
         return { ...INITIAL_DATA, ...db };
-    } catch (e) {
+    } catch {
         return INITIAL_DATA;
     }
 }
 
-export function saveDB(data: any) {
+export function saveDB(data: Record<string, unknown>) {
     fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
 }
 
