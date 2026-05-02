@@ -217,7 +217,7 @@ export function PenggajianClient({ data, karyawanList }: { data: Penggajian[]; k
                                                 </div>
                                             </TableCell>
                                             <TableCell className="text-right hidden sm:table-cell">{formatRupiah(d.gaji_pokok)}</TableCell>
-                                            <TableCell className="text-right hidden md:table-cell text-emerald-600">
+                                            <TableCell className="text-right hidden md:table-cell text-blue-600">
                                                 +{formatRupiah(d.tunjangan + d.bonus)}
                                             </TableCell>
                                             <TableCell className="text-right hidden md:table-cell text-red-500">
@@ -228,7 +228,7 @@ export function PenggajianClient({ data, karyawanList }: { data: Penggajian[]; k
                                             </TableCell>
                                             <TableCell>
                                                 {d.status === "dibayar" ? (
-                                                    <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-950 dark:text-emerald-400 dark:border-emerald-800 text-[10px] py-0 h-4">
+                                                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950 dark:text-blue-400 dark:border-blue-800 text-[10px] py-0 h-4">
                                                         Lunas
                                                     </Badge>
                                                 ) : (
@@ -240,7 +240,7 @@ export function PenggajianClient({ data, karyawanList }: { data: Penggajian[]; k
                                             <TableCell>
                                                 <div className="flex gap-1 justify-end">
                                                     {d.status === "pending" && (
-                                                        <Button variant="ghost" size="icon" className="h-7 w-7 text-emerald-600" onClick={() => handleBayar(d.id)} title="Bayar">
+                                                        <Button variant="ghost" size="icon" className="h-7 w-7 text-blue-600" onClick={() => handleBayar(d.id)} title="Bayar">
                                                             <CheckCircle2 className="h-4 w-4" />
                                                         </Button>
                                                     )}

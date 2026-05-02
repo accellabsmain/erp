@@ -9,18 +9,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ERP Yuniari",
+  title: "ERP accellabs",
   description: "Mini ERP - POS, Pendapatan, Pengeluaran, Penggajian",
+  icons: "/29335.webp",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
-    title: "ERP Yuniari",
+    title: "ERP accellabs",
     statusBarStyle: "default",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#059669",
+  themeColor: "#3b82f6",
 };
 
 export default function RootLayout({

@@ -136,13 +136,13 @@ export function PendapatanClient({
                 </div>
             </div>
 
-            <Card className="border-0 shadow-sm bg-emerald-50 dark:bg-emerald-950/30">
+            <Card className="border-0 shadow-sm bg-blue-50 dark:bg-blue-950/30">
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                    <CardTitle className="text-sm font-medium text-emerald-700 dark:text-emerald-400">Total Bulan Ini</CardTitle>
-                    <TrendingUp className="h-4 w-4 text-emerald-600" />
+                    <CardTitle className="text-sm font-medium text-blue-700 dark:text-blue-400">Total Bulan Ini</CardTitle>
+                    <TrendingUp className="h-4 w-4 text-blue-600" />
                 </CardHeader>
                 <CardContent>
-                    <p className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">{formatRupiah(totalBulanIni)}</p>
+                    <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">{formatRupiah(totalBulanIni)}</p>
                 </CardContent>
             </Card>
 
@@ -173,7 +173,7 @@ export function PendapatanClient({
                                         <TableCell className="text-sm font-medium">{d.deskripsi}</TableCell>
                                         <TableCell><Badge variant="secondary" className="text-xs">{d.kategori?.nama || "-"}</Badge></TableCell>
                                         <TableCell className="text-sm">{d.metode_pembayaran || "-"}</TableCell>
-                                        <TableCell className="text-right text-sm font-semibold text-emerald-600">{formatRupiah(d.jumlah)}</TableCell>
+                                        <TableCell className="text-right text-sm font-semibold text-blue-600">{formatRupiah(d.jumlah)}</TableCell>
                                         <TableCell>
                                             <div className="flex gap-1">
                                                 <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => { setEditing(d); setOpen(true); }}>

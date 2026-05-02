@@ -1,4 +1,4 @@
-const CACHE_NAME = 'erp-yuniari-cache-v1';
+const CACHE_NAME = 'erp-accellabs-cache-v1';
 
 // Aset statis yang WAJIB di-cache saat pertama kali buka webnya
 const PRECACHE_ASSETS = [

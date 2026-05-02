@@ -92,7 +92,7 @@ export function ManageAkunClient({ usersList, currentUserId }: { usersList: User
                         <form action={handleTambah} className="space-y-4">
                             <div className="space-y-2">
                                 <Label>Email (Bisa Dummy Email)</Label>
-                                <Input name="email" type="email" placeholder="Contoh: kasir3@yuniari.local" required />
+                                <Input name="email" type="email" placeholder="Contoh: kasir3@accellabs.local" required />
                             </div>
                             <div className="space-y-2">
                                 <Label>Password Sementara</Label>
@@ -142,7 +142,7 @@ export function ManageAkunClient({ usersList, currentUserId }: { usersList: User
                                     <TableCell className="font-medium">
                                         {u.email}
                                         {u.id === currentUserId && (
-                                            <Badge variant="outline" className="ml-2 text-[10px] bg-emerald-50 text-emerald-600 border-emerald-200">Anda Saat Ini</Badge>
+                                            <Badge variant="outline" className="ml-2 text-[10px] bg-blue-50 text-blue-600 border-blue-200">Anda Saat Ini</Badge>
                                         )}
                                     </TableCell>
                                     <TableCell>

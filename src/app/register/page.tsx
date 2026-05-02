@@ -30,10 +30,10 @@ export default function RegisterPage() {
             <div className="w-full max-w-md">
                 <div className="flex items-center justify-center gap-3 mb-8">
                     <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white overflow-hidden">
-                        <Image src="/favicon.png" alt="Herbal Yuniari Logo" width={100} height={100} className="h-full w-full object-cover" />
+                        <Image src="/29335.webp" alt="Herbal accellabs Logo" width={100} height={100} className="h-full w-full object-cover" />
                     </div>
                     <div>
-                        <h1 className="text-2xl font-bold tracking-tight">ERP Yuniari</h1>
+                        <h1 className="text-2xl font-bold tracking-tight">ERP accellabs</h1>
                         <p className="text-sm text-muted-foreground">Mini ERP System</p>
                     </div>
                 </div>

@@ -33,9 +33,9 @@ export default function InvoiceClient({ transaksi }: { transaksi: TransaksiB2B &
                 {/* Header */}
                 <div className="flex items-start justify-between border-b-2 border-white pb-6 mb-8 mt-2">
                     <div className="flex items-center gap-4">
-                        <Image src="/favicon.png" alt="Logo" width={64} height={64} className="rounded-md" />
+                        <Image src="/29335.webp" alt="Logo" width={64} height={64} className="rounded-md" />
                         <div>
-                            <h1 className="font-black text-3xl tracking-tight text-zinc-900">HERBAL YUNIARI</h1>
+                            <h1 className="font-black text-3xl tracking-tight text-zinc-900">HERBAL accellabs</h1>
                             <p className="text-zinc-600 font-medium text-sm mt-1">Grosir & Maklon Produk Spesialis Herbal</p>
                             <p className="text-sm text-zinc-500 max-w-xs mt-1 leading-snug">
                                 Singkar I, Wareng, Kec. Wonosari, Kabupaten Gunungkidul, D.I Yogyakarta (Telp: 0877-3834-7257)
@@ -43,7 +43,7 @@ export default function InvoiceClient({ transaksi }: { transaksi: TransaksiB2B &
                         </div>
                     </div>
                     <div className="text-right">
-                        <h2 className="text-4xl font-black text-emerald-700 uppercase tracking-widest mb-2">INVOICE</h2>
+                        <h2 className="text-4xl font-black text-blue-700 uppercase tracking-widest mb-2">INVOICE</h2>
                         <table className="text-sm font-medium ml-auto">
                             <tbody>
                                 <tr>
@@ -78,16 +78,16 @@ export default function InvoiceClient({ transaksi }: { transaksi: TransaksiB2B &
                     </div>
 
                     <div className="w-1/3 space-y-4">
-                        <div className="bg-emerald-50/50 p-4 rounded-lg border border-emerald-100 flex justify-between items-center">
-                            <span className="text-xs font-bold text-emerald-800/60 uppercase tracking-wider">Status Bayar</span>
-                            <span className={`font-bold px-3 py-1 bg-white rounded-md border text-sm ${transaksi.status_pembayaran === "Lunas" ? "text-emerald-700 border-emerald-200" :
+                        <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100 flex justify-between items-center">
+                            <span className="text-xs font-bold text-blue-800/60 uppercase tracking-wider">Status Bayar</span>
+                            <span className={`font-bold px-3 py-1 bg-white rounded-md border text-sm ${transaksi.status_pembayaran === "Lunas" ? "text-blue-700 border-blue-200" :
                                 transaksi.status_pembayaran === "DP/Parsial" ? "text-amber-600 border-amber-200" :
                                     "text-red-600 border-red-200"
                                 }`}>{transaksi.status_pembayaran}</span>
                         </div>
                         <div className="bg-blue-50/30 p-4 rounded-lg border border-blue-100 flex justify-between items-center">
                             <span className="text-xs font-bold text-blue-800/60 uppercase tracking-wider">Pengiriman</span>
-                            <span className={`font-bold px-3 py-1 bg-white rounded-md border text-sm ${transaksi.status_pengiriman === 'Selesai' ? 'text-emerald-600 border-emerald-200' :
+                            <span className={`font-bold px-3 py-1 bg-white rounded-md border text-sm ${transaksi.status_pengiriman === 'Selesai' ? 'text-blue-600 border-blue-200' :
                                 transaksi.status_pengiriman === 'Dikirim' ? 'text-blue-600 border-blue-200' :
                                     'text-amber-600 border-amber-200'
                                 }`}>{transaksi.status_pengiriman}</span>
@@ -141,7 +141,7 @@ export default function InvoiceClient({ transaksi }: { transaksi: TransaksiB2B &
                             <div className="border-b border-zinc-800 pb-1">
                                 <p className="font-bold text-zinc-900">{transaksi.user?.email?.split('@')[0] || "Admin"}</p>
                             </div>
-                            <p className="text-xs text-zinc-500 mt-1">Herbal Yuniari</p>
+                            <p className="text-xs text-zinc-500 mt-1">Herbal accellabs</p>
                         </div>
                     </div>
 
@@ -166,7 +166,7 @@ export default function InvoiceClient({ transaksi }: { transaksi: TransaksiB2B &
 
                             <div className="pt-4 border-t border-zinc-200 flex justify-between items-center text-lg mt-2">
                                 <span className="font-black text-zinc-900">Total Tagihan</span>
-                                <span className="font-black text-zinc-900 bg-emerald-100 text-emerald-800 px-3 py-1 rounded-md">{formatRupiah(transaksi.total_tagihan)}</span>
+                                <span className="font-black text-zinc-900 bg-blue-100 text-blue-800 px-3 py-1 rounded-md">{formatRupiah(transaksi.total_tagihan)}</span>
                             </div>
 
                             <div className="pt-4 border-t border-zinc-200 border-dashed flex justify-between text-zinc-600">

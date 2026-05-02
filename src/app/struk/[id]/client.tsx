@@ -20,7 +20,7 @@ export default function StrukClient({ transaksi }: { transaksi: Transaksi & { us
             <div className="bg-white text-black p-3 w-[58mm] shadow-lg print:shadow-none print:m-0 print:p-0">
                 {/* Header */}
                 <div className="text-center mb-3 border-b pb-3 border-dashed border-gray-400">
-                    <h1 className="font-bold text-lg mb-1 mt-1">Herbal Yuniari</h1>
+                    <h1 className="font-bold text-lg mb-1 mt-1">Herbal accellabs</h1>
                     <p className="text-[10px] leading-tight px-1">Singkar I, Wareng, Kec. Wonosari, Kabupaten Gunungkidul, Daerah Istimewa Yogyakarta</p>
                     <p className="text-[10px] mb-2 mt-1">Telp: 087738347257</p>
 
@@ -91,7 +91,7 @@ export default function StrukClient({ transaksi }: { transaksi: Transaksi & { us
                 <div className="text-center mt-4 pt-3 text-[10px] space-y-1">
                     <p className="font-bold">Terima Kasih</p>
                     <p className="text-gray-500 text-[9px] px-2 leading-tight">Barang yang sudah dibeli tidak dapat ditukar/dikembalikan</p>
-                    <p className="pt-2 font-medium">herbalyuniari.com</p>
+                    <p className="pt-2 font-medium">herbalaccellabs.com</p>
                 </div>
             </div>
 

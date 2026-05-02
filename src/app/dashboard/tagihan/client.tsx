@@ -156,7 +156,7 @@ export function TagihanClient({
                                             <TableCell className="font-medium">{d.nomor_transaksi}</TableCell>
                                             <TableCell>{d.mitra?.nama || "-"}</TableCell>
                                             <TableCell>{formatRupiah(d.total_tagihan)}</TableCell>
-                                            <TableCell className="text-emerald-600 font-medium">{formatRupiah(d.jumlah_dibayar)}</TableCell>
+                                            <TableCell className="text-blue-600 font-medium">{formatRupiah(d.jumlah_dibayar)}</TableCell>
                                             <TableCell className="text-orange-600">{formatRupiah(d.nominal_retur || 0)}</TableCell>
                                             <TableCell className="text-destructive font-medium">{formatRupiah(d.sisa_tagihan)}</TableCell>
                                             <TableCell>

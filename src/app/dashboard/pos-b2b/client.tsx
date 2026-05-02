@@ -183,7 +183,7 @@ export function PosB2BClient({ produkList, mitraList }: { produkList: Produk[], 
                                         <h3 className="font-medium text-sm line-clamp-2 pr-4">{p.nama}</h3>
                                         <div className="absolute top-3 right-3">
                                             {p.stok > 0 ? (
-                                                <Badge variant="outline" className="text-[10px] px-1.5 h-4 bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30">
+                                                <Badge variant="outline" className="text-[10px] px-1.5 h-4 bg-blue-50 text-blue-600 dark:bg-blue-950/30">
                                                     {p.stok}
                                                 </Badge>
                                             ) : (
@@ -192,7 +192,7 @@ export function PosB2BClient({ produkList, mitraList }: { produkList: Produk[], 
                                         </div>
                                     </div>
                                     <div className="px-4 py-2 border-t bg-zinc-50/50 dark:bg-zinc-950/50 w-full flex justify-between items-center">
-                                        <span className="font-bold text-emerald-600 text-sm">{formatRupiah(p.harga)}</span>
+                                        <span className="font-bold text-blue-600 text-sm">{formatRupiah(p.harga)}</span>
                                         <Plus className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                                     </div>
                                 </button>
@@ -209,7 +209,7 @@ export function PosB2BClient({ produkList, mitraList }: { produkList: Produk[], 
                         <h2 className="font-bold text-lg flex items-center gap-2">
                             <ShoppingCart className="h-5 w-5" />
                             Invoice B2B
-                            {cart.length > 0 && <Badge variant="secondary" className="ml-2 rounded-full px-2 h-5 text-xs bg-emerald-100 text-emerald-700">{cart.length}</Badge>}
+                            {cart.length > 0 && <Badge variant="secondary" className="ml-2 rounded-full px-2 h-5 text-xs bg-blue-100 text-blue-700">{cart.length}</Badge>}
                         </h2>
                         {cart.length > 0 && (
                             <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:bg-red-100" onClick={clearCart}>
@@ -222,7 +222,7 @@ export function PosB2BClient({ produkList, mitraList }: { produkList: Produk[], 
                     <div>
                         <Label className="text-xs mb-1 block text-muted-foreground">Pilih Mitra / Reseller</Label>
                         <Select value={mitraId} onValueChange={setMitraId}>
-                            <SelectTrigger className="h-10 border-emerald-500/30 w-full">
+                            <SelectTrigger className="h-10 border-blue-500/30 w-full">
                                 <SelectValue placeholder="-- Pilih Mitra Konsinyasi --" />
                             </SelectTrigger>
                             <SelectContent>
@@ -255,7 +255,7 @@ export function PosB2BClient({ produkList, mitraList }: { produkList: Produk[], 
                                 <div key={item.produk_id} className="flex gap-3 justify-between items-center group">
                                     <div className="flex-1">
                                         <p className="font-medium text-sm line-clamp-1">{item.nama}</p>
-                                        <p className="text-emerald-600 font-semibold text-xs">{formatRupiah(item.harga)}</p>
+                                        <p className="text-blue-600 font-semibold text-xs">{formatRupiah(item.harga)}</p>
                                     </div>
                                     <div className="flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1 border">
                                         <button className="h-6 w-6 rounded-md hover:bg-white flex items-center justify-center" onClick={() => updateQuantity(item.produk_id, -1)}><Minus className="h-3 w-3" /></button>
@@ -280,7 +280,7 @@ export function PosB2BClient({ produkList, mitraList }: { produkList: Produk[], 
                         </div>
                         <div className="flex justify-between font-bold text-lg pt-2 border-t border-dashed">
                             <span>Total Item</span>
-                            <span className="text-emerald-600">{formatRupiah(subtotal)}</span>
+                            <span className="text-blue-600">{formatRupiah(subtotal)}</span>
                         </div>
                     </div>
 
@@ -305,7 +305,7 @@ export function PosB2BClient({ produkList, mitraList }: { produkList: Produk[], 
 
                             <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-4 flex flex-col items-center justify-center mb-2 border">
                                 <span className="text-muted-foreground text-sm font-medium mb-1">TOTAL TAGIHAN</span>
-                                <span className="text-3xl font-bold tracking-tighter text-emerald-600">{formatRupiah(totalTagihan)}</span>
+                                <span className="text-3xl font-bold tracking-tighter text-blue-600">{formatRupiah(totalTagihan)}</span>
                                 <span className="text-xs text-muted-foreground mt-1 text-center">
                                     {(totalTagihan - jumlahDibayar) > 0
                                         ? `Sisa Tagihan: ${formatRupiah(totalTagihan - jumlahDibayar)}`
@@ -329,8 +329,8 @@ export function PosB2BClient({ produkList, mitraList }: { produkList: Produk[], 
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-none">
                                     <div className="space-y-1.5">
-                                        <Label className="text-xs text-emerald-600">Terbayar / DP Saat Ini (Rp)</Label>
-                                        <Input type="number" value={jumlahDibayar} onChange={(e) => setJumlahDibayar(Number(e.target.value) || 0)} placeholder="Biarkan 0 bila kasbon" className="border-emerald-500/50 font-bold focus-visible:ring-emerald-500" />
+                                        <Label className="text-xs text-blue-600">Terbayar / DP Saat Ini (Rp)</Label>
+                                        <Input type="number" value={jumlahDibayar} onChange={(e) => setJumlahDibayar(Number(e.target.value) || 0)} placeholder="Biarkan 0 bila kasbon" className="border-blue-500/50 font-bold focus-visible:ring-blue-500" />
                                     </div>
                                     <div className="space-y-1.5">
                                         <Label className="text-xs">Metode</Label>
@@ -371,11 +371,11 @@ export function PosB2BClient({ produkList, mitraList }: { produkList: Produk[], 
                         </>
                     ) : (
                         <div className="flex flex-col items-center justify-center py-8 space-y-6 text-center">
-                            <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center">
+                            <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
                                 <Receipt className="w-8 h-8" />
                             </div>
                             <div>
-                                <h3 className="text-2xl font-bold tracking-tight text-emerald-600">INVOICE SUKSES!</h3>
+                                <h3 className="text-2xl font-bold tracking-tight text-blue-600">INVOICE SUKSES!</h3>
                                 <p className="text-muted-foreground mt-1">Nomor: <span className="font-semibold text-zinc-900 dark:text-zinc-50">{successTrx}</span></p>
                             </div>
 

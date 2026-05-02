@@ -111,10 +111,10 @@ export function LaporanClient({
             </div>
 
             <div className="grid gap-4 sm:grid-cols-3">
-                <Card className="border-0 shadow-sm bg-emerald-50 dark:bg-emerald-950/30">
+                <Card className="border-0 shadow-sm bg-blue-50 dark:bg-blue-950/30">
                     <CardContent className="p-6">
-                        <h3 className="text-sm font-medium text-emerald-800 dark:text-emerald-400 mb-1">Total Pendapatan</h3>
-                        <p className="text-2xl font-bold text-emerald-900 dark:text-emerald-50">{formatRupiah(totalPendapatan)}</p>
+                        <h3 className="text-sm font-medium text-blue-800 dark:text-blue-400 mb-1">Total Pendapatan</h3>
+                        <p className="text-2xl font-bold text-blue-900 dark:text-blue-50">{formatRupiah(totalPendapatan)}</p>
                     </CardContent>
                 </Card>
                 <Card className="border-0 shadow-sm bg-red-50 dark:bg-red-950/30">
@@ -155,7 +155,7 @@ export function LaporanClient({
                         <CardContent className="p-6 space-y-6">
                             {/* Box Pendapatan */}
                             <div>
-                                <h4 className="font-semibold text-emerald-600 uppercase mb-3 flex items-center text-sm"><Plus className="mr-1 h-3 w-3" /> PENDAPATAN</h4>
+                                <h4 className="font-semibold text-blue-600 uppercase mb-3 flex items-center text-sm"><Plus className="mr-1 h-3 w-3" /> PENDAPATAN</h4>
                                 {Object.keys(pendapatanByKategori).length === 0 ? (
                                     <p className="text-muted-foreground text-xs ml-4">Tidak ada data</p>
                                 ) : (
@@ -166,9 +166,9 @@ export function LaporanClient({
                                                 <span className="font-medium">{formatRupiah(v)}</span>
                                             </div>
                                         ))}
-                                        <div className="flex justify-between text-sm py-2 font-bold bg-emerald-50/50 dark:bg-emerald-950/20 px-2 rounded-lg mt-2">
+                                        <div className="flex justify-between text-sm py-2 font-bold bg-blue-50/50 dark:bg-blue-950/20 px-2 rounded-lg mt-2">
                                             <span>Total Pendapatan</span>
-                                            <span className="text-emerald-600">{formatRupiah(totalPendapatan)}</span>
+                                            <span className="text-blue-600">{formatRupiah(totalPendapatan)}</span>
                                         </div>
                                     </div>
                                 )}
@@ -233,7 +233,7 @@ export function LaporanClient({
                                                 </p>
                                             </div>
                                             <div className="text-right">
-                                                <p className="font-bold text-emerald-600 text-sm">+{formatRupiah(p.jumlah)}</p>
+                                                <p className="font-bold text-blue-600 text-sm">+{formatRupiah(p.jumlah)}</p>
                                                 <p className="text-xs text-muted-foreground">{p.metode_pembayaran}</p>
                                             </div>
                                         </div>

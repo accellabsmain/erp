@@ -26,15 +26,15 @@ export default async function DashboardPage() {
 
             {/* Stats Grid */}
             <div className={`grid gap-4 sm:grid-cols-2 ${userRole === "Karyawan" ? "lg:grid-cols-3" : "lg:grid-cols-4"}`}>
-                <Card className="border-0 shadow-sm bg-emerald-50 dark:bg-emerald-950/30">
+                <Card className="border-0 shadow-sm bg-blue-50 dark:bg-blue-950/30">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-emerald-700 dark:text-emerald-400">
+                        <CardTitle className="text-sm font-medium text-blue-700 dark:text-blue-400">
                             {userRole === "Karyawan" ? "Pencapaian Penjualan" : "Pendapatan"}
                         </CardTitle>
-                        <TrendingUp className="h-4 w-4 text-emerald-600" />
+                        <TrendingUp className="h-4 w-4 text-blue-600" />
                     </CardHeader>
                     <CardContent>
-                        <p className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">{formatRupiah(stats.totalPendapatan)}</p>
+                        <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">{formatRupiah(stats.totalPendapatan)}</p>
                     </CardContent>
                 </Card>
 
@@ -48,15 +48,15 @@ export default async function DashboardPage() {
                     </CardContent>
                 </Card>
 
-                <Card className="border-0 shadow-sm bg-blue-50 dark:bg-blue-950/30">
+                <Card className="border-0 shadow-sm bg-indigo-50 dark:bg-indigo-950/30">
                     <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-blue-700 dark:text-blue-400">
+                        <CardTitle className="text-sm font-medium text-indigo-700 dark:text-indigo-400">
                             {userRole === "Karyawan" ? "Estimasi Profit" : "Profit / Loss"}
                         </CardTitle>
-                        <Wallet className="h-4 w-4 text-blue-600" />
+                        <Wallet className="h-4 w-4 text-indigo-600" />
                     </CardHeader>
                     <CardContent>
-                        <p className={`text-2xl font-bold ${stats.profit >= 0 ? "text-blue-900 dark:text-blue-100" : "text-red-600"}`}>
+                        <p className={`text-2xl font-bold ${stats.profit >= 0 ? "text-indigo-900 dark:text-indigo-100" : "text-red-600"}`}>
                             {formatRupiah(stats.profit)}
                         </p>
                     </CardContent>
@@ -102,10 +102,10 @@ export default async function DashboardPage() {
                                         <p className="text-xs text-muted-foreground">{new Date(t.tanggal).toLocaleDateString("id-ID")}</p>
                                     </div>
                                     <div className="text-right">
-                                        <p className={`text-sm font-bold ${t.tipe === "pendapatan" ? "text-emerald-600" : "text-red-500"}`}>
+                                        <p className={`text-sm font-bold ${t.tipe === "pendapatan" ? "text-blue-600" : "text-red-500"}`}>
                                             {t.tipe === "pendapatan" ? "+" : "-"}{formatRupiah(t.jumlah)}
                                         </p>
-                                        <Badge variant="outline" className={`text-[10px] py-0 h-4 ${t.tipe === "pendapatan" ? "bg-emerald-50 text-emerald-700 border-emerald-200" : "bg-red-50 text-red-700 border-red-200"}`}>
+                                        <Badge variant="outline" className={`text-[10px] py-0 h-4 ${t.tipe === "pendapatan" ? "bg-blue-50 text-blue-700 border-blue-200" : "bg-red-50 text-red-700 border-red-200"}`}>
                                             {t.tipe === "pendapatan" ? "Income" : "Expense"}
                                         </Badge>
                                     </div>

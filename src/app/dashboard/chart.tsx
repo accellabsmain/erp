@@ -38,7 +38,7 @@ export function DashboardChart({ data }: { data: ChartData[] }) {
                     }}
                 />
                 <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: "13px" }} />
-                <Bar dataKey="pendapatan" name="Pendapatan" fill="#10b981" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="pendapatan" name="Pendapatan" fill="#3b82f6" radius={[4, 4, 0, 0]} />
                 <Bar dataKey="pengeluaran" name="Pengeluaran" fill="#ef4444" radius={[4, 4, 0, 0]} />
             </BarChart>
         </ResponsiveContainer>

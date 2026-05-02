@@ -178,7 +178,7 @@ export function ProdukClient({ data, kategoriList }: { data: Produk[]; kategoriL
                                                     <span className="text-xs text-muted-foreground">-</span>
                                                 )}
                                             </TableCell>
-                                            <TableCell className="text-right font-semibold text-emerald-600">
+                                            <TableCell className="text-right font-semibold text-blue-600">
                                                 {formatRupiah(d.harga)}<span className="text-xs text-muted-foreground font-normal sm:hidden"></span>
                                             </TableCell>
                                             <TableCell className="text-center">
@@ -189,7 +189,7 @@ export function ProdukClient({ data, kategoriList }: { data: Produk[]; kategoriL
                                             </TableCell>
                                             <TableCell className="hidden sm:table-cell">
                                                 {d.stok > 0 ? (
-                                                    <Badge variant="outline" className="bg-emerald-50 text-emerald-700">Tersedia</Badge>
+                                                    <Badge variant="outline" className="bg-blue-50 text-blue-700">Tersedia</Badge>
                                                 ) : (
                                                     <Badge variant="secondary" className="bg-red-50 text-red-700">Habis</Badge>
                                                 )}

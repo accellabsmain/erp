@@ -280,7 +280,7 @@ export function PosClient({ produkList, kategoriList }: { produkList: Produk[]; 
 
                                         <div className="absolute top-3 right-3">
                                             {p.stok > 0 ? (
-                                                <Badge variant="outline" className="text-[10px] px-1.5 h-4 bg-emerald-50 text-emerald-600 dark:bg-emerald-950/30">
+                                                <Badge variant="outline" className="text-[10px] px-1.5 h-4 bg-blue-50 text-blue-600 dark:bg-blue-950/30">
                                                     {p.stok}
                                                 </Badge>
                                             ) : (
@@ -289,7 +289,7 @@ export function PosClient({ produkList, kategoriList }: { produkList: Produk[]; 
                                         </div>
                                     </div>
                                     <div className="px-4 py-2 border-t bg-zinc-50/50 dark:bg-zinc-950/50 w-full flex justify-between items-center">
-                                        <span className="font-bold text-emerald-600 text-sm">{formatRupiah(p.harga)}</span>
+                                        <span className="font-bold text-blue-600 text-sm">{formatRupiah(p.harga)}</span>
                                         <Plus className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
                                     </div>
                                 </button>
@@ -311,7 +311,7 @@ export function PosClient({ produkList, kategoriList }: { produkList: Produk[]; 
                         <ShoppingCart className="h-5 w-5" />
                         Pesanan
                         {cart.length > 0 && (
-                            <Badge variant="secondary" className="ml-2 rounded-full px-2 h-5 text-xs bg-emerald-100 text-emerald-700">
+                            <Badge variant="secondary" className="ml-2 rounded-full px-2 h-5 text-xs bg-blue-100 text-blue-700">
                                 {cart.length} item
                             </Badge>
                         )}
@@ -336,7 +336,7 @@ export function PosClient({ produkList, kategoriList }: { produkList: Produk[]; 
                                 <div key={item.produk_id} className="flex gap-3 justify-between items-center group">
                                     <div className="flex-1">
                                         <p className="font-medium text-sm line-clamp-1">{item.nama}</p>
-                                        <p className="text-emerald-600 font-semibold text-xs">{formatRupiah(item.harga)}</p>
+                                        <p className="text-blue-600 font-semibold text-xs">{formatRupiah(item.harga)}</p>
                                     </div>
 
                                     <div className="flex items-center gap-2 bg-zinc-100 dark:bg-zinc-800 rounded-lg p-1 border">
@@ -379,7 +379,7 @@ export function PosClient({ produkList, kategoriList }: { produkList: Produk[]; 
                         )}
                         <div className="flex justify-between font-bold text-lg pt-2 border-t border-dashed">
                             <span>Total Tagihan</span>
-                            <span className="text-emerald-600">{formatRupiah(total)}</span>
+                            <span className="text-blue-600">{formatRupiah(total)}</span>
                         </div>
                     </div>
 
@@ -404,7 +404,7 @@ export function PosClient({ produkList, kategoriList }: { produkList: Produk[]; 
 
                             <div className="bg-zinc-50 dark:bg-zinc-900 rounded-xl p-6 flex flex-col items-center justify-center mb-4 border">
                                 <span className="text-muted-foreground text-sm font-medium mb-1">TOTAL TAGIHAN</span>
-                                <span className="text-3xl font-bold tracking-tighter text-emerald-600">{formatRupiah(total)}</span>
+                                <span className="text-3xl font-bold tracking-tighter text-blue-600">{formatRupiah(total)}</span>
                             </div>
 
                             <div className="space-y-4">
@@ -464,12 +464,12 @@ export function PosClient({ produkList, kategoriList }: { produkList: Produk[]; 
                     ) : (
                         // Success State
                         <div className="py-8 flex flex-col items-center text-center space-y-6">
-                            <div className="h-20 w-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-2">
+                            <div className="h-20 w-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-2">
                                 <Receipt className="h-10 w-10" />
                             </div>
                             <div className="space-y-2">
                                 <h2 className="text-2xl font-bold">Pembayaran Berhasil!</h2>
-                                <p className="text-emerald-600 font-medium">#{successTrx}</p>
+                                <p className="text-blue-600 font-medium">#{successTrx}</p>
                                 <p className="text-muted-foreground text-sm max-w-[250px] mx-auto mt-4">
                                     Transaksi telah dicatat dan masuk ke menu Pendapatan
                                 </p>

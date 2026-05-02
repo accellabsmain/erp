@@ -48,10 +48,10 @@ function SidebarContent({ pathname, role, onLogout }: { pathname: string, role: 
         <div className="flex h-full flex-col">
             <div className="flex items-center gap-3 px-4 py-5">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white overflow-hidden">
-                    <Image src="/favicon.png" alt="Herbal Yuniari Logo" width={64} height={64} className="h-full w-full object-cover" />
+                    <Image src="/29335.webp" alt="Herbal accellabs Logo" width={64} height={64} className="h-full w-full object-cover" />
                 </div>
                 <div>
-                    <p className="text-sm font-bold tracking-tight">ERP Yuniari</p>
+                    <p className="text-sm font-bold tracking-tight">ERP accellabs</p>
                     <p className="text-xs text-muted-foreground">Mini ERP</p>
                 </div>
             </div>
@@ -72,8 +72,8 @@ function SidebarContent({ pathname, role, onLogout }: { pathname: string, role: 
                             className={cn(
                                 "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all duration-150",
                                 isActive
-                                    ? "bg-zinc-900 text-zinc-50 dark:bg-zinc-50 dark:text-zinc-900 shadow-sm"
-                                    : "text-muted-foreground hover:bg-zinc-100 hover:text-foreground dark:hover:bg-zinc-800"
+                                    ? "bg-primary text-primary-foreground shadow-sm shadow-primary/20"
+                                    : "text-muted-foreground hover:bg-blue-50 hover:text-primary dark:hover:bg-blue-900/20"
                             )}
                         >
                             <item.icon className="h-4 w-4" />
@@ -126,7 +126,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     if (isLoggingOut) {
         return (
             <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-zinc-50 dark:bg-zinc-950">
-                <Loader2 className="h-12 w-12 animate-spin text-emerald-600 mb-6" />
+                <Loader2 className="h-12 w-12 animate-spin text-blue-600 mb-6" />
                 <h2 className="text-3xl font-bold animate-pulse text-zinc-900 dark:text-zinc-50">
                     Terima Kasih, {email}!
                 </h2>
@@ -159,9 +159,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 </Sheet>
                 <div className="flex items-center gap-2">
                     <div className="h-6 w-6 rounded-md bg-white overflow-hidden flex items-center justify-center">
-                        <Image src="/favicon.png" alt="Logo" width={48} height={48} className="h-full w-full object-cover" />
+                        <Image src="/29335.webp" alt="Logo" width={48} height={48} className="h-full w-full object-cover" />
                     </div>
-                    <span className="font-bold text-sm">ERP Yuniari</span>
+                    <span className="font-bold text-sm">ERP accellabs</span>
                 </div>
             </div>
 
