@@ -128,12 +128,17 @@ export function PosB2BClient({ produkList, mitraList }: { produkList: Produk[], 
             toast.error(result.error);
         } else {
             toast.success("Invoice B2B Berhasil Dibuat");
-            setSuccessTrx(result.nomor || "INV-OK");
+            const nomorTrx = result.nomor || "INV-OK";
+            setSuccessTrx(nomorTrx);
             setCart([]);
             setDiskonNominal(0);
             setOngkir(0);
             setJumlahDibayar(0);
             setCatatan("");
+            
+            // Open invoice in new tab automatically
+            window.open(`/invoice/${nomorTrx}`, '_blank');
+            
             router.refresh();
         }
     }

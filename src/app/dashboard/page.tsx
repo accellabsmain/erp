@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { TrendingUp, TrendingDown, Wallet, Clock } from "lucide-react";
 import { DashboardChart } from "./chart";
 import { createClient } from "@/lib/supabase/server";
+import Link from "next/link";
 
 export default async function DashboardPage() {
     const supabase = await createClient();
@@ -25,52 +26,60 @@ export default async function DashboardPage() {
 
             {/* Stats Grid */}
             <div className={`grid gap-4 sm:grid-cols-2 ${userRole === "Karyawan" ? "lg:grid-cols-3" : "lg:grid-cols-4"}`}>
-                <Card className="border-0 shadow-sm bg-blue-50 dark:bg-blue-950/30">
-                    <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-blue-700 dark:text-blue-400">
-                            {userRole === "Karyawan" ? "Pencapaian Penjualan" : "Pendapatan"}
-                        </CardTitle>
-                        <TrendingUp className="h-4 w-4 text-blue-600" />
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-2xl font-bold text-blue-900 dark:text-blue-100">{formatRupiah(stats.totalPendapatan)}</p>
-                    </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-sm bg-red-50 dark:bg-red-950/30">
-                    <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-red-700 dark:text-red-400">Pengeluaran</CardTitle>
-                        <TrendingDown className="h-4 w-4 text-red-600" />
-                    </CardHeader>
-                    <CardContent>
-                        <p className="text-2xl font-bold text-red-900 dark:text-red-100">{formatRupiah(stats.totalPengeluaran)}</p>
-                    </CardContent>
-                </Card>
-
-                <Card className="border-0 shadow-sm bg-indigo-50 dark:bg-indigo-950/30">
-                    <CardHeader className="flex flex-row items-center justify-between pb-2">
-                        <CardTitle className="text-sm font-medium text-indigo-700 dark:text-indigo-400">
-                            {userRole === "Karyawan" ? "Estimasi Profit" : "Profit / Loss"}
-                        </CardTitle>
-                        <Wallet className="h-4 w-4 text-indigo-600" />
-                    </CardHeader>
-                    <CardContent>
-                        <p className={`text-2xl font-bold ${stats.profit >= 0 ? "text-indigo-900 dark:text-indigo-100" : "text-red-600"}`}>
-                            {formatRupiah(stats.profit)}
-                        </p>
-                    </CardContent>
-                </Card>
-
-                {userRole !== "Karyawan" && (
-                    <Card className="border-0 shadow-sm bg-amber-50 dark:bg-amber-950/30">
+                <Link href="/dashboard/pendapatan">
+                    <Card className="border shadow-sm bg-white dark:bg-zinc-900 hover:border-blue-500/50 hover:shadow-md transition-all group">
                         <CardHeader className="flex flex-row items-center justify-between pb-2">
-                            <CardTitle className="text-sm font-medium text-amber-700 dark:text-amber-400">Gaji Pending</CardTitle>
-                            <Clock className="h-4 w-4 text-amber-600" />
+                            <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-blue-600 transition-colors">
+                                {userRole === "Karyawan" ? "Pencapaian Penjualan" : "Pemasukan"}
+                            </CardTitle>
+                            <TrendingUp className="h-4 w-4 text-blue-600" />
                         </CardHeader>
                         <CardContent>
-                            <p className="text-2xl font-bold text-amber-900 dark:text-amber-100">{stats.penggajianPending}</p>
+                            <p className="text-2xl font-bold">{formatRupiah(stats.totalPendapatan)}</p>
                         </CardContent>
                     </Card>
+                </Link>
+
+                <Link href="/dashboard/pengeluaran">
+                    <Card className="border shadow-sm bg-white dark:bg-zinc-900 hover:border-red-500/50 hover:shadow-md transition-all group">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2">
+                            <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-red-600 transition-colors">Pengeluaran</CardTitle>
+                            <TrendingDown className="h-4 w-4 text-red-600" />
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-2xl font-bold">{formatRupiah(stats.totalPengeluaran)}</p>
+                        </CardContent>
+                    </Card>
+                </Link>
+
+                <Link href="/dashboard/laporan">
+                    <Card className="border shadow-sm bg-white dark:bg-zinc-900 hover:border-indigo-500/50 hover:shadow-md transition-all group">
+                        <CardHeader className="flex flex-row items-center justify-between pb-2">
+                            <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-indigo-600 transition-colors">
+                                {userRole === "Karyawan" ? "Estimasi Profit" : "Profit / Loss"}
+                            </CardTitle>
+                            <Wallet className="h-4 w-4 text-indigo-600" />
+                        </CardHeader>
+                        <CardContent>
+                            <p className={`text-2xl font-bold ${stats.profit >= 0 ? "text-zinc-900 dark:text-zinc-50" : "text-red-600"}`}>
+                                {formatRupiah(stats.profit)}
+                            </p>
+                        </CardContent>
+                    </Card>
+                </Link>
+
+                {userRole !== "Karyawan" && (
+                    <Link href="/dashboard/penggajian">
+                        <Card className="border shadow-sm bg-white dark:bg-zinc-900 hover:border-amber-500/50 hover:shadow-md transition-all group">
+                            <CardHeader className="flex flex-row items-center justify-between pb-2">
+                                <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-amber-600 transition-colors">Penggajian</CardTitle>
+                                <Clock className="h-4 w-4 text-amber-600" />
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-2xl font-bold">{stats.penggajianPending}</p>
+                            </CardContent>
+                        </Card>
+                    </Link>
                 )}
             </div>
 

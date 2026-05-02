@@ -107,10 +107,15 @@ export function PosClient({ produkList, kategoriList }: { produkList: Produk[]; 
             toast.error(result.error);
         } else {
             toast.success("Transaksi Berhasil");
-            setSuccessTrx(result.nomor || "TRX-OK");
+            const nomorTrx = result.nomor || "TRX-OK";
+            setSuccessTrx(nomorTrx);
             setCart([]);
             setDiskonValue(0);
             setCatatan("");
+            
+            // Open receipt in new tab automatically
+            window.open(`/struk/${nomorTrx}`, '_blank');
+            
             router.refresh();
         }
     }

@@ -4,8 +4,15 @@ import { formatRupiah } from "@/lib/format";
 import { Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Transaksi } from "@/lib/types";
+import { useEffect } from "react";
 
 export default function StrukClient({ transaksi }: { transaksi: Transaksi & { user?: { email?: string } } }) {
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            window.print();
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, []);
     return (
         <div className="flex flex-col items-center">
             {/* Action Bar (Not printed) */}

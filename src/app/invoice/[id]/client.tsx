@@ -7,7 +7,17 @@ import type { TransaksiB2B } from "@/lib/types";
 import { toast } from "sonner";
 import Image from "next/image";
 
+import { useEffect } from "react";
+
 export default function InvoiceClient({ transaksi }: { transaksi: TransaksiB2B & { user?: { email?: string } } }) {
+    useEffect(() => {
+        // Trigger print after a short delay to ensure rendering
+        const timer = setTimeout(() => {
+            window.print();
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, []);
+
     function handleShare() {
         const url = window.location.href;
         navigator.clipboard.writeText(url);
